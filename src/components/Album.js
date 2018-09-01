@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
 
+
 class Album extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +13,8 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHovered: null
     };
   
     this.audioElement = document.createElement('audio');
@@ -45,6 +47,24 @@ class Album extends Component {
     }
   }
 
+  handleMouseEnter(song) {
+   this.setState({ isHovered: song }); 
+  }
+
+  handleMouseLeave(song) {
+    this.setState({ isHovered: null });
+  }
+
+  mouseIconAction (song) {
+    if(this.state.isHovered === song && this.state.isPlaying){
+      return <span className="icon ion-md-pause"></span>;
+    } else {
+      if(this.state.isHovered ===song && !this.state.isPlaying){
+        return <span className="icon ion-md-play-circle"></span>;
+      }
+    }
+  }
+
 
   render() {
     return (
@@ -64,14 +84,18 @@ class Album extends Component {
             <col id="song-duration-column" />
           </colgroup>
           <tbody>
-            {this.state.album.songs.map( (song, index) =>
-              <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-              <tr className="number">{index + 1}</tr> 
-              <tr className="title">{song.title}</tr>
-              <tr className="duration">{song.duration}</tr>
-            </tr> 
-            )}
-          </tbody>
+             {this.state.album.songs.map( (song, index) =>
+              <tr className="song" key={index} onClick={() => this.handleSongClick(song)}  onMouseEnter={() => this.handleMouseEnter(song)} onMouseLeave={() => this.handleMouseLeave(song)}>
+               <td className="song-actions">
+                 <button onMouseEnter={this.mouseIconAction} onMouseExit={this.mouseIconAction}>{index + 1} </button>
+               </td> 
+              <td className="title">{song.title}</td>
+             <td className="duration">{song.duration}</td>
+           </tr>
+           )}
+         
+         </tbody>
+
         </table>
       </section>
     );
