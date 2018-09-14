@@ -1,0 +1,43 @@
+.album-cover-art {
+    margin-left: 2em;
+    width: 25%;
+    border-radius: 80%;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.album-title {
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: -.5em;
+}
+
+.artist {
+    margin-left: 1.2em;
+}
+
+.release-info {
+    margin-left: 1em; 
+    margin-top: 0em;
+    margin-bottom: 2em;
+}
+
+.song-list {
+    margin-left: .5em;
+}
+
+.number {
+    margin-left: 0em; 
+    margin-right: 3em; 
+    border-radius: 80%;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.song-title {
+    margin-left: 3em;
+    margin-right: 5em;
+}
+
+.song-duration-column {
+    margin-left: 6em; 
+}
+
