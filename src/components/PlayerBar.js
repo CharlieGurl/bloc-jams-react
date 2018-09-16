@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
+import './PlayerBar.css';
 
 class PlayerBar extends Component {
     render() {
         return(
             <section className="player-bar">
                <section id="buttons">
-                 <button id="previous" onClick={this.props.handlePrevClick}>
+                 <button className="previous" onClick={this.props.handlePrevClick}>
                    <span className="icon ion-md-skip-backward"></span>
                 </button>
-                <button id="play-pause" onClick={this.props.handleSongClick} >
+                <button className="play-pause" onClick={this.props.handleSongClick} >
                   <span className={this.props.isPlaying ? 'icon ion-md-pause' : 'icon ion-md-play'}></span> 
                 </button>
-                <button id="next" onClick={this.props.handleNextClick}>
+                <button className="next" onClick={this.props.handleNextClick}>
                   <span className="icon ion-md-skip-forward"></span>
                 </button>
                </section>
-               <section id="time-control">
+               <section className="time-control">
                  <div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
                  <input 
                   type="range" 
@@ -29,7 +30,7 @@ class PlayerBar extends Component {
                  />   
                  <div className="total-time">{this.props.formatTime(this.props.duration)}</div> 
                </section>
-               <section id="volume-control">
+               <section className="volume-control">
                  <div className="icon ion-md-volume-low"></div>
                  <input
                    type="range"
@@ -48,5 +49,4 @@ class PlayerBar extends Component {
 }
 
 
-export default PlayerBar; 
-
+export default PlayerBar;  

@@ -1,0 +1,24 @@
+.lib-image {
+    border-radius: 80%;
+    width: 25%;
+}
+
+.card-body {
+    width: 100%;
+    margin: 0 1em 1em 0;
+}
+
+.card-subtitle {
+    margin-top: -1em;
+    margin-bottom: 0em;
+    color: #705d6a;
+}
+
+.card-text {
+    margin-bottom: 3em;
+    color: #493c45;
+}
+
+.card-border {
+    box-shadow: #705d6a;
+}
